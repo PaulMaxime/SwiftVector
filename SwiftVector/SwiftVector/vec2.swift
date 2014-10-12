@@ -10,21 +10,21 @@ import UIKit
 
 /// 2 Dimensional vector structure with simple vector operations. Operations that manipulate the
 /// vector return a new vector.
-struct vec2: Equatable, Printable {
-  var x: Double
-  var y: Double
-  var length: Double {
+public struct vec2: Equatable, Printable {
+  let x: Double
+  let y: Double
+  public var length: Double {
     get {
       return sqrt(x*x + y*y)
     }
   }
-  var angle: Double {
+  public var angle: Double {
     return atan2(y, x)
   }
-  var angleDegrees: Double {
+  public var angleDegrees: Double {
     return self.angle * 180 / M_PI
   }
-  var description: String {
+  public var description: String {
     return "(\(x),\(y))"
   }
 
@@ -33,7 +33,7 @@ struct vec2: Equatable, Printable {
   ///  :param: x The x value
   ///  :param: y The y value
   ///
-  init(_ x: Double, _ y:Double) {
+  public init(_ x: Double, _ y:Double) {
     self.x = x;
     self.y = y;
   }
@@ -45,7 +45,7 @@ struct vec2: Equatable, Printable {
   ///  :param: from The starting point
   ///  :param: to   The end point
   ///
-  init(from p1: CGPoint, to p2: CGPoint) {
+  public init(from p1: CGPoint, to p2: CGPoint) {
     x = Double(p2.x - p1.x)
     y = Double(p2.y - p1.y)
   }
@@ -54,7 +54,7 @@ struct vec2: Equatable, Printable {
   ///
   ///  :param: radians The number of radians to rotate.
   ///  :return: A new vector that is rotated.
-  func rotate(radians r: Double) -> vec2 {
+  public func rotate(radians r: Double) -> vec2 {
     let x1 = x * cos(r) - y * sin(r)
     let y1 = x * sin(r) + y * cos(r)
     return vec2(x1, y1)
@@ -64,7 +64,7 @@ struct vec2: Equatable, Printable {
   ///
   ///  :param: degrees The number of degrees to rotate.
   ///  :return: A new vector that is rotated.
-  func rotate(degrees d: Double) -> vec2 {
+  public func rotate(degrees d: Double) -> vec2 {
     return rotate(radians:d * M_PI / 180)
   }
 
@@ -72,14 +72,14 @@ struct vec2: Equatable, Printable {
   ///
   /// :param: factor The scale factor
   /// :return: A new vector that is scaled by the factor.
-  func scale(factor: Double) -> vec2 {
+  public func scale(factor: Double) -> vec2 {
     return vec2(x * factor, y * factor)
   }
 
   /// Return a vector that has a unit length, but in the same direction as the original.
   ///
   /// :return: A normalized vector
-  func normalize() -> vec2 {
+  public func normalize() -> vec2 {
     let m = self.length;
     return scale(1/m);
   }
@@ -87,26 +87,26 @@ struct vec2: Equatable, Printable {
 
 // MARK: Operator overloads
 
-func ==(lhs: vec2, rhs: vec2) -> Bool {
+public func ==(lhs: vec2, rhs: vec2) -> Bool {
   return lhs.x == rhs.x && lhs.y == rhs.y
 }
 
 /// MARK: Extension for CGPoint that use vec2.
 
-extension CGPoint {
+public extension CGPoint {
 
   /// Make a new point that is translated by the vector.
   ///
   /// :param: v A translation vector
   /// :return: A new point that is translated.
-  func translate(v:vec2) -> CGPoint {
+  public func translate(v:vec2) -> CGPoint {
     return CGPoint(x: self.x + CGFloat(v.x), y: self.y + CGFloat(v.y))
   }
 }
 
 /// MARK: Extension for UIBezierPath that uses vec2.
 
-extension UIBezierPath {
+public extension UIBezierPath {
 
   /// Convenience initializer that makes a box that surrounds a line with a specified width
   /// that is evenly distributed on either side of the original line.
@@ -115,7 +115,7 @@ extension UIBezierPath {
   /// :param: end   The ending point of the line.
   /// :param: width The width of the box.
   ///
-  convenience init(boxFromPoint start:CGPoint, toPoint end:CGPoint, width:CGFloat) {
+  public convenience init(boxFromPoint start:CGPoint, toPoint end:CGPoint, width:CGFloat) {
     self.init()
     // If the line has no length, there's no box.
     if start == end {
