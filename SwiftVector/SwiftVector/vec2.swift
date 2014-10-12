@@ -96,6 +96,7 @@ func ==(lhs: vec2, rhs: vec2) -> Bool {
 extension CGPoint {
 
   /// Make a new point that is translated by the vector.
+  ///
   /// :param: v A translation vector
   /// :return: A new point that is translated.
   func translate(v:vec2) -> CGPoint {
