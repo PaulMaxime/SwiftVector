@@ -9,3 +9,5 @@ This library is pretty minimal. I'll only grow it as I need more functions for m
 Some notes:
 
 vec2 is immutable. Any methods on a vector create a new object.
+
+I don't generally like operator overloading. It's seductive, but it tends to make code harder to read and debug.
