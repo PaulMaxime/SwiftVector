@@ -11,3 +11,5 @@ Some notes:
 vec2 is immutable. Any methods on a vector create a new object.
 
 I don't generally like operator overloading. It's seductive, but it tends to make code harder to read and debug.
+
+All public methods will be commented. I generally like unit tests. If you want to contribute to this repository I recommend both.

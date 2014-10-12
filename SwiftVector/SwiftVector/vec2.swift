@@ -11,19 +11,23 @@ import UIKit
 /// 2 Dimensional vector structure with simple vector operations. Operations that manipulate the
 /// vector return a new vector.
 public struct vec2: Equatable, Printable {
-  let x: Double
-  let y: Double
+  public let x: Double
+  public let y: Double
+
   public var length: Double {
     get {
       return sqrt(x*x + y*y)
     }
   }
+
   public var angle: Double {
     return atan2(y, x)
   }
+
   public var angleDegrees: Double {
     return self.angle * 180 / M_PI
   }
+
   public var description: String {
     return "(\(x),\(y))"
   }
