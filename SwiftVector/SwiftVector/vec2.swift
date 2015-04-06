@@ -14,6 +14,12 @@ public struct vec2: Equatable, Printable {
   public let x: Double
   public let y: Double
 
+  public var asCGVector: CGVector {
+    get {
+      return CGVector(dx: x, dy: y)
+    }
+  }
+
   public var length: Double {
     get {
       return sqrt(x*x + y*y)
