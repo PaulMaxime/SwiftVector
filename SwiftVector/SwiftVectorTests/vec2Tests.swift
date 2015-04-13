@@ -71,4 +71,11 @@ class vec2Tests: XCTestCase {
     XCTAssertEqualWithAccuracy(v2.length, 1.0, epsilon)
     XCTAssertEqualWithAccuracy(v1.angle, v2.angle, epsilon)
   }
+
+  func testNormalizeZero() {
+    let v1 = vec2(0, 0)
+    let v2 = v1.normalize()
+    XCTAssertEqualWithAccuracy(v2.length, 0.0, epsilon)
+    XCTAssertEqualWithAccuracy(v1.angle, v2.angle, epsilon)
+  }
 }
