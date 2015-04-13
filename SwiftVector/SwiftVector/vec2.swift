@@ -14,6 +14,12 @@ public struct vec2: Equatable, Printable {
   public let x: Double
   public let y: Double
 
+  // For purposes of comparisons and scaling operations, any magnitude less than this value is
+  // considered to be 0. Note: it's not a good idea to use this value directly when comparing
+  // (e.g. fabs(a - b) < EPSILON). See http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm
+  // for more info.
+  internal let EPSILON = 1.0e-14;
+
   public var asCGVector: CGVector {
     get {
       return CGVector(dx: x, dy: y)
@@ -91,7 +97,11 @@ public struct vec2: Equatable, Printable {
   /// :return: A normalized vector
   public func normalize() -> vec2 {
     let m = self.length;
-    return scale(1/m);
+    if m < EPSILON {
+      return vec2(0.0, 0.0);
+    } else {
+      return scale(1/m);
+    }
   }
 }
 
