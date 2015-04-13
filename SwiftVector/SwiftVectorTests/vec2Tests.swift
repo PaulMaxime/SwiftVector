@@ -23,6 +23,15 @@ class vec2Tests: XCTestCase {
     XCTAssertEqual(v1, v2)
   }
 
+  func testInitCGVector() {
+    let dx = 3.4
+    let dy = 5.6
+    let vector = CGVector(dx: dx, dy: dy)
+    let vec = vec2(vector: vector)
+    XCTAssertEqualWithAccuracy(Double(vector.dy), vec.y, epsilon)
+    XCTAssertEqualWithAccuracy(Double(vector.dx), vec.x, epsilon)
+  }
+
   /// Test that rotating by radians works.
   func testRotateRadians() {
     let v = vec2(0, 1)

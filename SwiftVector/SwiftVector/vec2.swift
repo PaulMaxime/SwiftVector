@@ -66,6 +66,11 @@ public struct vec2: Equatable, Printable {
     y = Double(p2.y - p1.y)
   }
 
+  public init(vector v:CGVector) {
+    self.x = Double(v.dx)
+    self.y = Double(v.dy)
+  }
+
   /// Rotate the vector by radians.
   ///
   ///  :param: radians The number of radians to rotate.
