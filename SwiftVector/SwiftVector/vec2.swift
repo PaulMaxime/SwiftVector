@@ -44,7 +44,7 @@ public struct vec2: Equatable, Printable {
     return "(\(x),\(y))"
   }
 
-  /// Initialize the vector with  a pair of doubles
+  /// Initialize the vector with a pair of doubles
   ///
   ///  :param: x The x value
   ///  :param: y The y value
@@ -52,6 +52,25 @@ public struct vec2: Equatable, Printable {
   public init(_ x: Double, _ y:Double) {
     self.x = x;
     self.y = y;
+  }
+
+  /// Initialize the vector with a pair of CGFloat
+  ///
+  ///  :param: x The x value
+  ///  :param: y The y value
+  ///
+  public init(_ x:CGFloat, _ y:CGFloat) {
+    self.x = Double(x);
+    self.y = Double(y);
+  }
+
+  /// Initialize a vector with a single CGPoint.
+  ///
+  /// :param: point the point
+  ///
+  public init(point p:CGPoint) {
+    x = Double(p.x)
+    y = Double(p.y)
   }
 
   /// Create a vector which represents the offset between two points. The magnitude
@@ -157,6 +176,36 @@ public extension UIBezierPath {
     let p2 = start.translate(v2)
     let p3 = end.translate(v)
     let p4 = end.translate(v2)
+
+    // Build the path.
+    self.moveToPoint(p1)
+    self.addLineToPoint(p3)
+    self.addLineToPoint(p4)
+    self.addLineToPoint(p2)
+    self.closePath()
+  }
+
+  /// Convenience initializer that makes a box centered on a point at a specified angle and size.
+  /// The angle is projected along the width of the box.
+  ///
+  /// :param: center The center of the box.
+  /// :param: angle  The angle of the box, in degrees
+  /// :param: size   The size of the box.
+  ///
+  public convenience init(boxWithCenter center:CGPoint, angle:Double, size:CGSize) {
+    self.init()
+    let dx = size.width / 2.0
+    let dy = size.height / 2.0
+
+    // Make 4 points for the box
+    let v1 = vec2(dx, dy).rotate(degrees: angle)
+    let p1 = center.translate(v1)
+    let v2 = vec2(dx,-dy).rotate(degrees: angle)
+    let p2 = center.translate(v2)
+    let v3 = vec2(-dx, dy).rotate(degrees: angle)
+    let p3 = center.translate(v3)
+    let v4 = vec2(-dx, -dy).rotate(degrees: angle)
+    let p4 = center.translate(v4)
 
     // Build the path.
     self.moveToPoint(p1)
