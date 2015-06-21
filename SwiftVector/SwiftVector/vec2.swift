@@ -97,7 +97,7 @@ public struct vec2: Equatable, CustomStringConvertible {
   /// Rotate the vector by radians.
   ///
   ///  - parameter radians: The number of radians to rotate.
-  ///  :return: A new vector that is rotated.
+  ///  - returns: A new vector that is rotated.
   public func rotate(radians r: Double) -> vec2 {
     let x1 = x * cos(r) - y * sin(r)
     let y1 = x * sin(r) + y * cos(r)
@@ -107,7 +107,7 @@ public struct vec2: Equatable, CustomStringConvertible {
   /// Rotate the vector by degrees.
   ///
   ///  - parameter degrees: The number of degrees to rotate.
-  ///  :return: A new vector that is rotated.
+  ///  - returns: A new vector that is rotated.
   public func rotate(degrees d: Double) -> vec2 {
     return rotate(radians:d * M_PI / 180)
   }
@@ -115,14 +115,14 @@ public struct vec2: Equatable, CustomStringConvertible {
   /// Multiply the vector's length by a constant scale factor.
   ///
   /// - parameter factor: The scale factor
-  /// :return: A new vector that is scaled by the factor.
+  /// - returns: A new vector that is scaled by the factor.
   public func scale(factor: Double) -> vec2 {
     return vec2(x * factor, y * factor)
   }
 
   /// Return a vector that has a unit length, but in the same direction as the original.
   ///
-  /// :return: A normalized vector
+  ///  - returns: A normalized vector
   public func normalize() -> vec2 {
     let m = self.length;
     if m < EPSILON {
@@ -146,7 +146,7 @@ public extension CGPoint {
   /// Make a new point that is translated by the vector.
   ///
   /// - parameter v: A translation vector
-  /// :return: A new point that is translated.
+  /// - returns: A new point that is translated.
   public func translate(v:vec2) -> CGPoint {
     return CGPoint(x: self.x + CGFloat(v.x), y: self.y + CGFloat(v.y))
   }
