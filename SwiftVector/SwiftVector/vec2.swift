@@ -10,7 +10,7 @@ import UIKit
 
 /// 2 Dimensional vector structure with simple vector operations. Operations that manipulate the
 /// vector return a new vector.
-public struct vec2: Equatable, Printable {
+public struct vec2: Equatable, CustomStringConvertible {
   public let x: Double
   public let y: Double
 
@@ -46,8 +46,8 @@ public struct vec2: Equatable, Printable {
 
   /// Initialize the vector with a pair of doubles
   ///
-  ///  :param: x The x value
-  ///  :param: y The y value
+  ///  - parameter x: The x value
+  ///  - parameter y: The y value
   ///
   public init(_ x: Double, _ y:Double) {
     self.x = x;
@@ -56,8 +56,8 @@ public struct vec2: Equatable, Printable {
 
   /// Initialize the vector with a pair of CGFloat
   ///
-  ///  :param: x The x value
-  ///  :param: y The y value
+  ///  - parameter x: The x value
+  ///  - parameter y: The y value
   ///
   public init(_ x:CGFloat, _ y:CGFloat) {
     self.x = Double(x);
@@ -66,7 +66,7 @@ public struct vec2: Equatable, Printable {
 
   /// Initialize a vector with a single CGPoint.
   ///
-  /// :param: point the point
+  /// - parameter point: the point
   ///
   public init(point p:CGPoint) {
     x = Double(p.x)
@@ -77,8 +77,8 @@ public struct vec2: Equatable, Printable {
   /// of the vector will be the distance between the points and the direction will
   /// be the direction from the first to the second.
   ///
-  ///  :param: from The starting point
-  ///  :param: to   The end point
+  ///  - parameter from: The starting point
+  ///  - parameter to:   The end point
   ///
   public init(from p1: CGPoint, to p2: CGPoint) {
     x = Double(p2.x - p1.x)
@@ -87,7 +87,7 @@ public struct vec2: Equatable, Printable {
 
   /// Create a vector from a CGVector.
   ///
-  /// :param: vector the CGVector
+  /// - parameter vector: the CGVector
   ///
   public init(vector v:CGVector) {
     self.x = Double(v.dx)
@@ -96,7 +96,7 @@ public struct vec2: Equatable, Printable {
 
   /// Rotate the vector by radians.
   ///
-  ///  :param: radians The number of radians to rotate.
+  ///  - parameter radians: The number of radians to rotate.
   ///  :return: A new vector that is rotated.
   public func rotate(radians r: Double) -> vec2 {
     let x1 = x * cos(r) - y * sin(r)
@@ -106,7 +106,7 @@ public struct vec2: Equatable, Printable {
 
   /// Rotate the vector by degrees.
   ///
-  ///  :param: degrees The number of degrees to rotate.
+  ///  - parameter degrees: The number of degrees to rotate.
   ///  :return: A new vector that is rotated.
   public func rotate(degrees d: Double) -> vec2 {
     return rotate(radians:d * M_PI / 180)
@@ -114,7 +114,7 @@ public struct vec2: Equatable, Printable {
 
   /// Multiply the vector's length by a constant scale factor.
   ///
-  /// :param: factor The scale factor
+  /// - parameter factor: The scale factor
   /// :return: A new vector that is scaled by the factor.
   public func scale(factor: Double) -> vec2 {
     return vec2(x * factor, y * factor)
@@ -145,7 +145,7 @@ public extension CGPoint {
 
   /// Make a new point that is translated by the vector.
   ///
-  /// :param: v A translation vector
+  /// - parameter v: A translation vector
   /// :return: A new point that is translated.
   public func translate(v:vec2) -> CGPoint {
     return CGPoint(x: self.x + CGFloat(v.x), y: self.y + CGFloat(v.y))
@@ -159,9 +159,9 @@ public extension UIBezierPath {
   /// Convenience initializer that makes a box that surrounds a line with a specified width
   /// that is evenly distributed on either side of the original line.
   ///
-  /// :param: start The starting point of the line.
-  /// :param: end   The ending point of the line.
-  /// :param: width The width of the box.
+  /// - parameter start: The starting point of the line.
+  /// - parameter end:   The ending point of the line.
+  /// - parameter width: The width of the box.
   ///
   public convenience init(boxFromPoint start:CGPoint, toPoint end:CGPoint, width:CGFloat) {
     self.init()
@@ -192,9 +192,9 @@ public extension UIBezierPath {
   /// Convenience initializer that makes a box centered on a point at a specified angle and size.
   /// The angle is projected along the width of the box.
   ///
-  /// :param: center The center of the box.
-  /// :param: angle  The angle of the box, in degrees
-  /// :param: size   The size of the box.
+  /// - parameter center: The center of the box.
+  /// - parameter angle:  The angle of the box, in degrees
+  /// - parameter size:   The size of the box.
   ///
   public convenience init(boxWithCenter center:CGPoint, angle:Double, size:CGSize) {
     self.init()
