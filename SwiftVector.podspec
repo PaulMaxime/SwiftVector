@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SwiftVector"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A vector library in Swift. This is my vector lib. There are many like it but this one is mine."
 
   s.description  = <<-DESC

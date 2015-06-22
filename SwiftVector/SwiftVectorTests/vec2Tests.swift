@@ -28,41 +28,41 @@ class vec2Tests: XCTestCase {
     let dy = 5.6
     let vector = CGVector(dx: dx, dy: dy)
     let vec = vec2(vector: vector)
-    XCTAssertEqualWithAccuracy(Double(vector.dy), vec.y, epsilon)
-    XCTAssertEqualWithAccuracy(Double(vector.dx), vec.x, epsilon)
+    XCTAssertEqualWithAccuracy(Double(vector.dy), vec.y, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(Double(vector.dx), vec.x, accuracy: epsilon)
   }
 
   /// Test that rotating by radians works.
   func testRotateRadians() {
     let v = vec2(0, 1)
     let rot = v.rotate(radians:0.1)
-    XCTAssertEqualWithAccuracy(rot.angle, v.angle + 0.1, epsilon)
+    XCTAssertEqualWithAccuracy(rot.angle, v.angle + 0.1, accuracy: epsilon)
 
     let v1 = vec2(1.5 ,1)
 
     let v2 = v1.rotate(radians: M_PI_2)
-    XCTAssertEqualWithAccuracy(v1.y, -v2.x, epsilon)
-    XCTAssertEqualWithAccuracy(v1.x, v2.y, epsilon)
+    XCTAssertEqualWithAccuracy(v1.y, -v2.x, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v1.x, v2.y, accuracy: epsilon)
   }
 
   func testRotateDegrees() {
     let v1 = vec2(2, 3);
     let v2 = v1.rotate(degrees: 90)
-    XCTAssertEqualWithAccuracy(v2.angleDegrees, v1.angleDegrees + 90.0, epsilon)
+    XCTAssertEqualWithAccuracy(v2.angleDegrees, v1.angleDegrees + 90.0, accuracy: epsilon)
     let v3 = v1.rotate(degrees: 180)
     let v4 = v1.rotate(degrees: 270)
     let v5 = v1.rotate(degrees: 360)
 
-    XCTAssertEqualWithAccuracy(v1.x, v2.y, epsilon)
-    XCTAssertEqualWithAccuracy(v1.y, -v2.x, epsilon)
-    XCTAssertEqualWithAccuracy(v2.x, v3.y, epsilon)
-    XCTAssertEqualWithAccuracy(v2.y, -v3.x, epsilon)
-    XCTAssertEqualWithAccuracy(v3.x, v4.y, epsilon)
-    XCTAssertEqualWithAccuracy(v3.y, -v4.x, epsilon)
-    XCTAssertEqualWithAccuracy(v4.x, v5.y, epsilon)
-    XCTAssertEqualWithAccuracy(v4.y, -v5.x, epsilon)
-    XCTAssertEqualWithAccuracy(v1.x, v5.x, epsilon)
-    XCTAssertEqualWithAccuracy(v1.y, v5.y, epsilon)
+    XCTAssertEqualWithAccuracy(v1.x, v2.y, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v1.y, -v2.x, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v2.x, v3.y, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v2.y, -v3.x, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v3.x, v4.y, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v3.y, -v4.x, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v4.x, v5.y, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v4.y, -v5.x, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v1.x, v5.x, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v1.y, v5.y, accuracy: epsilon)
   }
 
   func testScale() {
@@ -71,20 +71,20 @@ class vec2Tests: XCTestCase {
 
     let v2 = v1.scale(3.0)
     let l2 = v2.length
-    XCTAssertEqualWithAccuracy(l1 * 3.0, l2, epsilon)
+    XCTAssertEqualWithAccuracy(l1 * 3.0, l2, accuracy: epsilon)
   }
 
   func testNormalize() {
     let v1 = vec2(100, 1000)
     let v2 = v1.normalize()
-    XCTAssertEqualWithAccuracy(v2.length, 1.0, epsilon)
-    XCTAssertEqualWithAccuracy(v1.angle, v2.angle, epsilon)
+    XCTAssertEqualWithAccuracy(v2.length, 1.0, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v1.angle, v2.angle, accuracy: epsilon)
   }
 
   func testNormalizeZero() {
     let v1 = vec2(0, 0)
     let v2 = v1.normalize()
-    XCTAssertEqualWithAccuracy(v2.length, 0.0, epsilon)
-    XCTAssertEqualWithAccuracy(v1.angle, v2.angle, epsilon)
+    XCTAssertEqualWithAccuracy(v2.length, 0.0, accuracy: epsilon)
+    XCTAssertEqualWithAccuracy(v1.angle, v2.angle, accuracy: epsilon)
   }
 }
