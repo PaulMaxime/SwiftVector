@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DAD4E85519E1F94600540849 /* SwiftVector.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD4E85419E1F94600540849 /* SwiftVector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAD4E86919E1F9AC00540849 /* vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E86819E1F9AC00540849 /* vec2.swift */; };
 		DAD4E86B19E1FA8D00540849 /* vec2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E86A19E1FA8D00540849 /* vec2Tests.swift */; };
 		DAD4E88F19E24BB300540849 /* vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E86819E1F9AC00540849 /* vec2.swift */; };
@@ -17,7 +16,6 @@
 		7420DCDA1B377BF5002BED8C /* SwiftVector.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SwiftVector.podspec; path = ../../SwiftVector.podspec; sourceTree = "<group>"; };
 		DAD4E84F19E1F94600540849 /* SwiftVector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftVector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD4E85319E1F94600540849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAD4E85419E1F94600540849 /* SwiftVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftVector.h; sourceTree = "<group>"; };
 		DAD4E85A19E1F94600540849 /* SwiftVectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftVectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD4E85D19E1F94600540849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD4E86819E1F9AC00540849 /* vec2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = vec2.swift; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 		DAD4E85119E1F94600540849 /* SwiftVector */ = {
 			isa = PBXGroup;
 			children = (
-				DAD4E85419E1F94600540849 /* SwiftVector.h */,
 				DAD4E86819E1F9AC00540849 /* vec2.swift */,
 				DAD4E85219E1F94600540849 /* Supporting Files */,
 			);
@@ -103,7 +100,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAD4E85519E1F94600540849 /* SwiftVector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -295,7 +291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
