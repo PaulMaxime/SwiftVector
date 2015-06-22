@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
+  s.ios.deployment_target = "9.0"
   # s.osx.deployment_target = "10.7"
 
 
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/PaulMaxime/SwiftVector.git", :commit => "044370da9d528733a785e63b6e715b03307011ff" }
+  s.source = { :git => "https://github.com/PaulMaxime/SwiftVector.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,10 +89,11 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "SwiftVector", "SwiftVector/**/*.{h,swift}"
-  s.exclude_files = "SwiftVector/Exclude"
+  s.source_files  = "SwiftVector/**/*.{h,swift}"
+  # s.exclude_files = "SwiftVector/"
 
   s.public_header_files = "SwiftVector/**/*.h"
+  s.requires_arc = true
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -115,7 +116,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
+  s.framework  = "XCTest"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
