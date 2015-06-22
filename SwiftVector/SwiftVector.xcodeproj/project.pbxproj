@@ -14,6 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7420DCDA1B377BF5002BED8C /* SwiftVector.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SwiftVector.podspec; path = ../../SwiftVector.podspec; sourceTree = "<group>"; };
 		DAD4E84F19E1F94600540849 /* SwiftVector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftVector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD4E85319E1F94600540849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD4E85419E1F94600540849 /* SwiftVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftVector.h; sourceTree = "<group>"; };
@@ -63,8 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				DAD4E85419E1F94600540849 /* SwiftVector.h */,
-				DAD4E85219E1F94600540849 /* Supporting Files */,
 				DAD4E86819E1F9AC00540849 /* vec2.swift */,
+				DAD4E85219E1F94600540849 /* Supporting Files */,
 			);
 			path = SwiftVector;
 			sourceTree = "<group>";
@@ -72,6 +73,7 @@
 		DAD4E85219E1F94600540849 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7420DCDA1B377BF5002BED8C /* SwiftVector.podspec */,
 				DAD4E85319E1F94600540849 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -253,7 +255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -293,7 +295,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
